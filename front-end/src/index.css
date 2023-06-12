@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1{
+  font-size: 50px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.progress-bar {
+  position: fixed;
+  height: 20px;
+  border-radius: 0px 2px 0px 0px;
+  background: linear-gradient(
+    90deg,
+    rgba(109, 227, 219, 1) 0%,
+    rgba(132, 115, 177, 1) 100%,
+    rgba(3, 9, 112, 1) 100%);
+}
+.progressbar{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 5px;
+	border-radius: 5px;
+	background-color: #eee;
+}
+
+.progressPercent{
+	font-weight: 600;
+	font-family:'Franklin Gothic Medium';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	color: #eee;
+	text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+}
