@@ -1,4 +1,9 @@
 # dependencies
 /node_modules
-/Recipe.csv
-.env
+
+
+# Ignore .env file
+/backend/.env
+
+# Ignore data.csv file
+/backend/data.csv
