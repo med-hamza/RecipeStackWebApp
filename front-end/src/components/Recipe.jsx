@@ -36,29 +36,31 @@ const Recipe = () => {
     recipesToDisplay
       .slice(pageVisited, pageVisited + recipesPerPage)
       .map((recipe) => (
+        <div className='flex flex-col w-[350px] p-3 animate-slideup '>
         <div key={recipe._id}>
+        <div>
+              <img
+                src={`${window.location.origin}/images/${recipe.Image_Name}.jpg`}
+                alt={recipe.Title}
+                className="w-80 rounded-lg"
+              />
+            </div>
             <h2>
               <Link to={`/recipe/${recipe._id}`}>{recipe.Title}</Link>
             </h2>
-            <p>
+            {/* <p>
               <strong>Ingredients:</strong>{' '}
               {recipe.Ingredients.length > maxLenth
                 ? `${recipe.Ingredients.substring(0, maxLenth)}...`
                 : recipe.Ingredients}
-            </p>
-            <p>
+            </p> */}
+            {/* <p>
               <strong>Instructions:</strong>{' '}
               {recipe.Instructions.length > maxInstr
                 ? `${recipe.Instructions.substring(0, maxInstr)}...`
                 : recipe.Instructions}
-            </p>
-            <p>
-              <img
-                src={`${window.location.origin}/images/${recipe.Image_Name}.jpg`}
-                alt={recipe.Title}
-                className="w-80"
-              />
-            </p>
+            </p> */}
+          </div>
           </div>
       ))
   ) : (
@@ -92,7 +94,9 @@ const Recipe = () => {
     <div>
       <h2>Recipe</h2>
       <input type="text" value={searchVal} onChange={handleSearchChange} placeholder="Search Recipe" />
+      <div className='flex-wrap flex sm:justify-start justify-center gap-1'>
       {displayRecipes}
+      </div>
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"
