@@ -4,6 +4,6 @@
 
 # Ignore .env file
 /backend/.env
-
+   
 # Ignore data.csv file
 /backend/data.csv
