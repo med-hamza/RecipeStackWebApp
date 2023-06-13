@@ -36,10 +36,9 @@ const Recipe = () => {
     recipesToDisplay
       .slice(pageVisited, pageVisited + recipesPerPage)
       .map((recipe) => (  
-     
+      <Link to={`/recipe/${recipe._id}`}>
         <div  key={recipe._id}>
-           <Link to={`/recipe/${recipe._id}`}>
-          <div className='border rounded-xl flex flex-col sm:w-[300px] w-[160px] p-3'>
+          <div className='border rounded-xl flex flex-col w-[300px] p-3'>
             <div>
               <img
                 src={`${window.location.origin}/images/${recipe.Image_Name}.jpg`}
@@ -66,9 +65,8 @@ const Recipe = () => {
                 : recipe.Instructions}
             </p> */}
           </div>
-          </Link>
         </div>
-   
+      </Link>
       ))
   ) : (
     <h3>No recipes found.</h3>
@@ -99,8 +97,9 @@ const Recipe = () => {
 
   return (
     <div className='w-[90%] max-w-7xl mx-auto'>
+      <h2>Recipe</h2>
       <input type="text" value={searchVal} onChange={handleSearchChange} placeholder="Search Recipe" />
-      <div className='flex-wrap flex sm:justify-start justify-center sm:gap-4 gap-2'>
+      <div className='flex-wrap flex sm:justify-start justify-center gap-4'>
         {displayRecipes}
       </div>
       <ReactPaginate
