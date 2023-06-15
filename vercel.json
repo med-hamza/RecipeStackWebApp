@@ -10,14 +10,12 @@
       { "source": "/(.*)", "destination": "/server.js" }
     ],
     "env": {
-      "MONGO_URI": "<your_mongo_uri>"
+      "MONGO_URI": "mongodb+srv://mohamedhamzatrabelsi:hamza123@fitnesstrack.b6boeiy.mongodb.net/CRUD_DB?retryWrites=true&w=majority"
     },
-    "build": {
-      "env": {
-        "MONGO_URI": "<your_mongo_uri>"
-      },
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ]
   }
-  
