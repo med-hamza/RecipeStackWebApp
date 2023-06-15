@@ -6,20 +6,22 @@ const WishlistPage = () => {
     const wishlistData = useSelector((state) => state.wishlists.wishlistItem);
 
     return (
-        <div>
-            <h2 className='text-xl font-bold text-center'>Wishlist</h2>
+      <div className='w-[90%] max-w-7xl mx-auto'>
+            <h2 className='text-3xl font-bold mb-10 mt-10'>All Your list</h2>
+         
             {wishlistData.length === 0 ? (
-        <p>Your wishlist is empty.</p>
+        <h3 className='text-center text-xl mt-10 mb-10'>Your Recipe list is empty.</h3>
       ) : (
-        <ul>
+        <div className='flex-wrap flex sm:justify-start justify-center gap-2'>
           {wishlistData.map((item) => (
-            <li key={item._id}>
+            <div key={item._id}>
               <Wishcard item={item} />
-            </li>
+            </div>
           ))}
-        </ul>
+       </div>
       )}
-        </div>
+      </div>
+    
     );
 };
 

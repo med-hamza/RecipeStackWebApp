@@ -6,7 +6,8 @@ import Wishlist from './pages/Wishlist';
 
 function App() {
   return (
-      <div className="App">
+    <div style={{ backgroundImage: `url(/bg_recipe.png)`, backgroundRepeat: 'no-repeat'}}>
+      <div className="" >
         <Routes>
           <Route path="/" element={<LayoutRecipe />}>
             <Route path="/wishlist" element={<Wishlist />} />
@@ -15,6 +16,7 @@ function App() {
           </Route>
           <Route path="*" element={<h1>Page not found!</h1>} />
         </Routes>
+      </div>
       </div>
 
   );

@@ -23,11 +23,7 @@ code {
   position: fixed;
   height: 20px;
   border-radius: 0px 2px 0px 0px;
-  background: linear-gradient(
-    90deg,
-    rgba(109, 227, 219, 1) 0%,
-    rgba(132, 115, 177, 1) 100%,
-    rgba(3, 9, 112, 1) 100%);
+  background: #F6784C;
 }
 .progressbar{
 	position: relative;
@@ -40,14 +36,24 @@ code {
 
 .progressPercent{
 	font-weight: 600;
-	font-family:'Franklin Gothic Medium';
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
 	color: #eee;
-	text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+	text-shadow: #000;
 }
 .paginate li {
     margin: 5px 10px;
+    color: #858585;
+}
+.paginate li.paginationActive {
+  border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 5px 10px;
+    margin-top: 0px;
+    background-color: #F6784C;
+    color: white;
 }
