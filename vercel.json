@@ -1,18 +1,9 @@
 {
     "version": 2,
     "rewrites": [
-      { "source": "/data/recipes/:id", "destination": "/server.js" },
-      { "source": "/data/recipes", "destination": "/server.js" },
-      { "source": "/data/add", "destination": "/server.js" },
-      { "source": "/(.*)", "destination": "/index.html" }
-    ],
-    "env": {
-      "MONGO_URI": "mongodb+srv://mohamedhamzatrabelsi:hamza123@fitnesstrack.b6boeiy.mongodb.net/CRUD_DB?retryWrites=true&w=majority"
-    },
-    "build": {
-      "env": {
-        "MONGO_URI": "mongodb+srv://mohamedhamzatrabelsi:hamza123@fitnesstrack.b6boeiy.mongodb.net/CRUD_DB?retryWrites=true&w=majority"
-      }
-    }
+      { "source": "/data/recipes/:id", "destination": "/api/recipes/:id" },
+      { "source": "/data/recipes", "destination": "/api/recipes" },
+      { "source": "/data/add", "destination": "/api/add" }
+    ]
   }
   
