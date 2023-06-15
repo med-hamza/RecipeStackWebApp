@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "routes": [
+      { "src": "/data/recipes/:id", "dest": "/server.js" },
+      { "src": "/data/recipes", "dest": "/server.js" },
+      { "src": "/data/add", "dest": "/server.js" },
+      { "src": "/(.*)", "dest": "/" }
+    ],
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/server.js" }
+    ],
+    "env": {
+      "MONGO_URI": "<your_mongo_uri>"
+    },
+    "build": {
+      "env": {
+        "MONGO_URI": "<your_mongo_uri>"
+      },
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  }
+  
