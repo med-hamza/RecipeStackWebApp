@@ -168,6 +168,7 @@ const Recipe = () => {
                   </h2>
                 </div>
               </Link>
+              <div className=" flex flex-row items-center justify-between">
               <button aria-label="Add favorite" onClick={() => addWishhandler(recipe)}>
                 {wishlistData.some((item) => item._id === recipe._id) ? (
                   <HiHeart className=' text-[#F6784C] text-2xl' />
@@ -176,8 +177,9 @@ const Recipe = () => {
                 )}
               </button>
               <button onClick={() => setShowDaysMap(prevState => ({ ...prevState, [recipe._id]: !prevState[recipe._id] }))}>
-                Show
+                Add your planner
               </button>
+              </div>
 
               <div className="day-checkboxes">
                 {showDaysMap[recipe._id] ?  (<>
@@ -188,7 +190,7 @@ const Recipe = () => {
                   dispatch(
                     addToPlanner({
                       recipeId: recipe._id,
-                      days: Days, // Use selectedDays instead of Days
+                      days: Days,
                       Title: recipe.Title,
                     })
                   )

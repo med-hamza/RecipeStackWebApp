@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchRecipedata = createAsyncThunk (
     'data/fetchRecipedata',
     async (_, { extraArgument }) => {
-        const response = await fetch('http://localhost:4000/data/recipes');
+        const response = await fetch('https://recipe-web-app-ojhn.onrender.com/data/recipes');
         const data = await response.json();
         return data;
     }
@@ -12,7 +12,7 @@ export const fetchRecipedata = createAsyncThunk (
 );
 
 export const fetchRecipeById = createAsyncThunk('recipe/fetchRecipeById', async (id) => {
-  const response = await fetch(`http://localhost:4000/data/recipes/${id}`);
+  const response = await fetch(`https://recipe-web-app-ojhn.onrender.com/data/recipes/${id}`);
   const data = await response.json();
   return data;
 });
