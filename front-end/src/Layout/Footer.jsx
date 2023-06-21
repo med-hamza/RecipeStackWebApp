@@ -11,7 +11,7 @@ const Footer = () => {
   <p className='text-white text-lg'>Delightful culinary creations for every palate.</p>
   </div>
   <div className='menu-footer mt-5 mb-5'>
-   <nav className='flex items-center justify-center '>
+   <nav className=' hidden items-center justify-center '>
     <div className='menu_item px-14'>
     <Link to="/">HOME</Link>
     </div>

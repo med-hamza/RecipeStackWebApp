@@ -14,8 +14,9 @@ const Header = () => {
  <Link className='mr-8' to="/explore">About </Link>
  <Link className='mr-8' to="/Help">  Help</Link>
  <Link className='mr-8' to="/Help"> Contact</Link>
- <Link className='mr-8' to="/explore">Explore </Link>
+ {/* <Link className='mr-8' to="/explore">Explore </Link> */}
  <Link className='mr-8' to="/wishlist"> My Recipes ({wishlistData?.length}) </Link>
+ <Link className='mr-8' to="/planner"> My Planner </Link>
  </div>
     </nav>
     </div>

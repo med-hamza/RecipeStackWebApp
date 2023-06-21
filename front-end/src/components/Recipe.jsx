@@ -1,3 +1,4 @@
+import { addToPlanner } from "../reducers/recipeplanner"
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipedata } from '../reducers/recipeReducer';
@@ -9,6 +10,9 @@ import { HiSearch } from "react-icons/hi";
 import { HiOutlineHeart } from "react-icons/hi"
 import { HiHeart } from "react-icons/hi"
 import Swal from 'sweetalert2';
+import { setSelectedDays } from "../reducers/recipeplanner";
+
+
 
 const Recipe = () => {
   const dispatch = useDispatch();
@@ -20,11 +24,16 @@ const Recipe = () => {
 
 
   const [pageNumber, setPageNumber] = useState(0);
+  const [showDaysMap, setShowDaysMap] = useState({});
+
   const recipesPerPage = 16;
   const pageVisited = pageNumber * recipesPerPage;
 
   const [searchVal, setSearchVal] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+  const [Days, setDays] = useState([]);
+
 
   const handleSearchChange = (event) => {
     const value = event.target.value;
@@ -36,6 +45,8 @@ const Recipe = () => {
     setFilteredRecipes(filtered);
     setPageNumber(0);
   };
+
+  // add recipe in wishlist
 
   const addWishhandler = (recipes) => {
     const isRecipeInWishlist = wishlistData.some((item) => item._id === recipes._id);
@@ -54,8 +65,84 @@ const Recipe = () => {
         timer: 1500
       });
     }
-    
+
   }
+
+
+  const handleDaySelect = (recipeId, day, Title) => {
+    const recipeIndex = Days.findIndex((item) => item.recipeId === recipeId);
+
+    const newSelectedDays = [...Days];
+
+    if (recipeIndex >= 0) {
+      const recipeDays = newSelectedDays[recipeIndex].days;
+      const dayIndex = recipeDays.indexOf(day);
+
+      if (dayIndex >= 0) {
+        recipeDays.splice(dayIndex, 1);
+        if (recipeDays.length === 0) {
+          newSelectedDays.splice(recipeIndex, 1);
+        }
+      } else {
+        recipeDays.push(day);
+      }
+    } else {
+      const recipe = recipes.find((recipe) => recipe._id === recipeId);
+      const recipeTitle = recipe ? recipe.Title : '';
+      newSelectedDays.push({ recipeId, days: [day], title: recipeTitle });
+    }
+
+    setDays(newSelectedDays);
+    console.log("Selected Days:", newSelectedDays);
+  };
+
+
+
+
+
+  const isRecipeDaySelected = (recipeId, day) => {
+    return Days.some((item) => item.recipeId === recipeId && item.days.includes(day));
+  };
+
+
+
+  const plannerdays = Days.map((pindex) => (
+    <div key={pindex.recipeId}>
+      {pindex.recipeId}
+      {pindex.title}
+      <div>
+        {pindex.days}
+      </div>
+      <div> </div>
+
+    </div>
+  ));
+
+
+  const renderDayCheckboxes = (recipeId) => {
+    const showDays = showDaysMap[recipeId];
+    if (!showDays) {
+      return null;
+    }
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const recipe = recipes.find((recipe) => recipe._id === recipeId);
+    const recipeTitle = recipe ? recipe.Title : '';
+
+    return days.map((day, index) => (
+      <div key={index}>
+        <input
+          type="checkbox"
+          checked={isRecipeDaySelected(recipeId, day)}
+          onChange={() => handleDaySelect(recipeId, day, recipe.Title)} // Use recipe.Title instead of recipeTitle
+        />
+        <label>{day}</label>
+      </div>
+    ));
+  };
+
+
+
+
 
   const recipesToDisplay = searchVal ? filteredRecipes : recipes || [];
   const displayRecipes = recipesToDisplay.length > 0 ? (
@@ -64,7 +151,7 @@ const Recipe = () => {
       .map((recipe) => (
 
         <div key={recipe._id}>
-          <div className='border rounded-xl flex flex-col w-[300px] p-3'>
+          <div className='border rounded-xl flex flex-col sm:w-[300px] w-[180px] p-3'>
             <div>
               <Link to={`/recipe/${recipe._id}`}>
                 <img
@@ -82,12 +169,37 @@ const Recipe = () => {
                 </div>
               </Link>
               <button aria-label="Add favorite" onClick={() => addWishhandler(recipe)}>
-              {wishlistData.some((item) => item._id === recipe._id) ? (
-                <HiHeart className=' text-[#F6784C] text-2xl'/>
-              ) : (
-                <HiOutlineHeart className='text-[#F6784C] text-2xl' />
-              )}
-            </button>
+                {wishlistData.some((item) => item._id === recipe._id) ? (
+                  <HiHeart className=' text-[#F6784C] text-2xl' />
+                ) : (
+                  <HiOutlineHeart className='text-[#F6784C] text-2xl' />
+                )}
+              </button>
+              <button onClick={() => setShowDaysMap(prevState => ({ ...prevState, [recipe._id]: !prevState[recipe._id] }))}>
+                Show
+              </button>
+
+              <div className="day-checkboxes">
+                {showDaysMap[recipe._id] ?  (<>
+                  {renderDayCheckboxes(recipe._id)}
+                  <button
+                className="add-to-planner-button"
+                onClick={() =>
+                  dispatch(
+                    addToPlanner({
+                      recipeId: recipe._id,
+                      days: Days, // Use selectedDays instead of Days
+                      Title: recipe.Title,
+                    })
+                  )
+                }
+              >
+                Add to Planner
+              </button>
+                </>)  : null}
+              </div>
+              
+
             </div>
           </div>
         </div>
@@ -121,8 +233,8 @@ const Recipe = () => {
   }
 
   return (
-    <div className='w-[90%] max-w-7xl mx-auto'>
-       <div className='flex w-1/2 mx-auto mb-10 text-center bg-[#fff] rounded-full border border-[#D9D9D9]'>
+    <div className='w-full max-w-7xl mx-auto'>
+      <div className='flex w-1/2 mx-auto mb-10 text-center bg-[#fff] rounded-full border border-[#D9D9D9]'>
         <input
           type="text"
           value={searchVal}
@@ -143,10 +255,10 @@ const Recipe = () => {
           <h1 className=' text-5xl  text-white font-bold'>Mike’s famous salad <br />
             with cheese</h1>
         </div>
-     <img src={process.env.PUBLIC_URL + '/recipe_cover.png'} alt="Background" className='mb-10' />
-     </div>
-     
-      <div className='flex-wrap flex sm:justify-start justify-center gap-4'>
+        <img src={process.env.PUBLIC_URL + '/recipe_cover.png'} alt="Background" className='mb-10' />
+      </div>
+
+      <div className='flex-wrap flex sm:justify-start justify-center sm:gap-4 gap-2'>
         {displayRecipes}
       </div>
       <ReactPaginate

@@ -4,7 +4,6 @@ import Wishcard from '../components/Wishcard';
 
 const WishlistPage = () => {
     const wishlistData = useSelector((state) => state.wishlists.wishlistItem);
-
     return (
       <div className='w-[90%] max-w-7xl mx-auto'>
             <h2 className='text-3xl font-bold mb-10 mt-10'>All Your list</h2>
