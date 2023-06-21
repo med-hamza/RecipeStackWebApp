@@ -68,8 +68,8 @@ const RecipeDetails = () => {
               {recipes.Instructions && recipes.Instructions.length > maxInstr
                 ? `${recipes.Instructions.substring(0, maxInstr)}....`
                 : recipes.Instructions} 
-                <p> <a href='#nutrition-section' className='text-sm text-[#F6784C]'>Read More</a></p>
             </p>
+            <a href='#nutrition-section' className='text-sm text-[#F6784C]'>Read More</a>
 
             <div className='mt-10 mb-10  divide-x flex items-center'>
               <div className='mr-5 text-center'>

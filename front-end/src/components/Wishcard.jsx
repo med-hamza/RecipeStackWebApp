@@ -14,7 +14,7 @@ const Wishcard = ({item}) => {
        const maxLenth = 50;
   return (
    
-    <div className='mb-5 w-[240px]'>
+    <div className='mb-5 sm:w-[240px] w-[180px]'>
         <Link to={`/recipe/${item._id}`}>
       <img  className='rounded-xl w-56 h-52' src={`${window.location.origin}/images/${item.Image_Name}.jpg`} alt={item.Title} />
       </Link>
