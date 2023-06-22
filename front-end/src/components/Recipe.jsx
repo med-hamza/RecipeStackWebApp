@@ -10,7 +10,8 @@ import { HiSearch } from "react-icons/hi";
 import { HiOutlineHeart } from "react-icons/hi"
 import { HiHeart } from "react-icons/hi"
 import Swal from 'sweetalert2';
-import { setSelectedDays } from "../reducers/recipeplanner";
+import { HiPlusSmall } from "react-icons/hi2";
+import { HiCalendarDays } from "react-icons/hi2";
 
 
 
@@ -129,13 +130,14 @@ const Recipe = () => {
     const recipeTitle = recipe ? recipe.Title : '';
 
     return days.map((day, index) => (
-      <div key={index}>
+      <div key={index} className="px-5">
         <input
+        className=" mr-3"
           type="checkbox"
           checked={isRecipeDaySelected(recipeId, day)}
           onChange={() => handleDaySelect(recipeId, day, recipe.Title)} // Use recipe.Title instead of recipeTitle
         />
-        <label>{day}</label>
+        <label className="text-[#9b9b9b] text-sm">{day}</label>
       </div>
     ));
   };
@@ -151,7 +153,7 @@ const Recipe = () => {
       .map((recipe) => (
 
         <div key={recipe._id}>
-          <div className='border rounded-xl flex flex-col sm:w-[300px] w-[180px] p-3'>
+          <div className='border rounded-xl flex flex-col sm:w-[300px] w-[180px] p-3 relative'>
             <div>
               <Link to={`/recipe/${recipe._id}`}>
                 <img
@@ -168,7 +170,7 @@ const Recipe = () => {
                   </h2>
                 </div>
               </Link>
-              <div className=" flex flex-row items-center justify-between">
+              <div className=" flex flex-row items-center justify-between px-2 mb-2 mt-2">
               <button aria-label="Add favorite" onClick={() => addWishhandler(recipe)}>
                 {wishlistData.some((item) => item._id === recipe._id) ? (
                   <HiHeart className=' text-[#F6784C] text-2xl' />
@@ -177,15 +179,15 @@ const Recipe = () => {
                 )}
               </button>
               <button onClick={() => setShowDaysMap(prevState => ({ ...prevState, [recipe._id]: !prevState[recipe._id] }))}>
-                Add your planner
+              <HiCalendarDays className=" text-2xl text-[#F6784C]" />
               </button>
               </div>
 
               <div className="day-checkboxes">
-                {showDaysMap[recipe._id] ?  (<>
-                  {renderDayCheckboxes(recipe._id)}
-                  <button
-                className="add-to-planner-button"
+                {showDaysMap[recipe._id] ?  (<div className="absolute checkbox w-[200px] bg-white top-6 right-6">
+                <p className="mt-3 mb-2 px-5">Add Your Recipe</p>
+                <div
+                className="flex items-center cursor-pointer add-to-planner-button px-5 mt-2 mb-2 w-full text-[#F6784C] text-left bg-[#f5f5f5]"
                 onClick={() =>
                   dispatch(
                     addToPlanner({
@@ -196,9 +198,12 @@ const Recipe = () => {
                   )
                 }
               >
-                Add to Planner
-              </button>
-                </>)  : null}
+             <HiPlusSmall />   Add to Planner
+              </div>
+                  <div className=" overflow-x-hidden overflow-y-auto max-h-[120px]">
+                  {renderDayCheckboxes(recipe._id)}
+              </div>
+                </div>)  : null}
               </div>
               
 
