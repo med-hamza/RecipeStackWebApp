@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Lottie from 'react-lottie';
+import animationData from '../assest/images/loading-food.json'
 
 const Progressbar = () => {
-  const [filled, setFilled] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (filled < 100) {
-        setFilled((prev) => prev + 2);
-      }
-    }, 30);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [filled]);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+  };
 
-  return (
-    <div>
-      <div className="progressbar">
-        <div
-          style={{
-            height: "100%",
-            width: `${filled}%`,
-            backgroundColor: "#a66cff",
-            transition: "width 0.5s",
-          }}
-        ></div>
-        <span className="progressPercent"></span>
-      </div>
-    </div>
-  );
+  return <div className=" w-28 h-28"> <Lottie options={defaultOptions} /></div>;
 };
 
 export default Progressbar;

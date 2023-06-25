@@ -15,6 +15,9 @@ import { HiCalendarDays } from "react-icons/hi2";
 
 
 
+
+
+
 const Recipe = () => {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.Recipe.recipes.recipes);
@@ -184,7 +187,7 @@ const Recipe = () => {
               </div>
 
               <div className="day-checkboxes">
-                {showDaysMap[recipe._id] ?  (<div className="absolute checkbox w-[200px] bg-white top-6 right-6">
+                {showDaysMap[recipe._id] ?  (<div className="absolute checkbox w-[200px] bg-white top-[-20px] sm:top-6  sm:right-6 right-[-13px]">
                 <p className="mt-3 mb-2 px-5">Add Your Recipe</p>
                 <div
                 className="flex items-center cursor-pointer add-to-planner-button px-5 mt-2 mb-2 w-full text-[#F6784C] text-left bg-[#f5f5f5]"
@@ -225,14 +228,17 @@ const Recipe = () => {
     dispatch(fetchRecipedata());
   }, [dispatch]);
 
+
   if (!recipes) {
-    return <div>
-      <Progressbar />
+    return <div className="text-center h-screen grid items-center justify-center m-auto">
+    <Progressbar />
     </div>;
   }
 
   if (status === 'loading') {
-    return <div> Loading... </div>
+    return <div className=" text-center h-screen grid items-center justify-center m-auto">
+    <Progressbar />
+    </div>;
   }
 
   if (status === 'failed') {
@@ -241,7 +247,7 @@ const Recipe = () => {
 
   return (
     <div className='w-full max-w-7xl mx-auto'>
-      <div className='flex w-1/2 mx-auto mb-10 text-center bg-[#fff] rounded-full border border-[#D9D9D9]'>
+      <div className='flex sm:w-1/2 w-4/5 mx-auto mb-10 text-center bg-[#fff] rounded-full border border-[#D9D9D9]'>
         <input
           type="text"
           value={searchVal}
@@ -257,9 +263,9 @@ const Recipe = () => {
 
       </div>
       <div className=' relative'>
-        <div className=' absolute top-20 left-10'>
-          <p className='text-[#DC582A] text-2xl mb-3'>Trending now </p>
-          <h1 className=' text-5xl  text-white font-bold'>Mike’s famous salad <br />
+        <div className=' absolute sm:top-20 top-2 left-10'>
+          <p className='text-[#DC582A] text-lg sm:text-2xl  mb-1 sm:mb-3'>Trending now </p>
+          <h1 className='sm:text-5xl text-xl  text-white font-bold'>Mike’s famous salad <br />
             with cheese</h1>
         </div>
         <img src={process.env.PUBLIC_URL + '/recipe_cover.png'} alt="Background" className='mb-10' />
