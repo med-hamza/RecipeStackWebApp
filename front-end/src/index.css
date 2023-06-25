@@ -69,3 +69,16 @@ code {
     bottom: 0;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.08);
    }
+
+   @media only screen and (max-width: 600px) {
+    .paginate li {
+    margin: 5px 5px;
+    font-size:14px;
+   } 
+   li.previous {
+    font-size: 13px;
+}
+li.next {
+font-size:13px
+}
+   }

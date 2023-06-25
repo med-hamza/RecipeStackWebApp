@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { fetchRecipeById } from '../reducers/recipeReducer';
 import { addToWishlist } from '../reducers/wishReducer'
 import {HiOutlineBadgeCheck} from "react-icons/hi";
+import Progressbar from '../components/Progressbar';
 import Swal from 'sweetalert2';
 
 const RecipeDetails = () => {
@@ -22,7 +23,7 @@ const RecipeDetails = () => {
   }, [dispatch, id]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <div className=" text-center grid items-center justify-center m-auto"> <Progressbar /> </div>;
   }
 
   if (status === 'failed') {
@@ -87,7 +88,7 @@ const RecipeDetails = () => {
     
        </div>
        <div className='flex-1 flex justify-center'>
-       <img src={`${window.location.origin}/images/${recipes.Image_Name}.jpg`} alt={recipes.Title} className='max-w-none	h-[400px] object-cover w-[400px]' />
+       <img src={`${window.location.origin}/images/${recipes.Image_Name}.jpg`} alt={recipes.Title} className='sm:max-w-none max-w-full h-[400px] object-cover w-[400px]' />
        </div>
       </div>
 
