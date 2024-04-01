@@ -24,7 +24,7 @@ router.post('/add', async (req, res) => {
 router.get('/recipes', async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 500;
+    const limit = parseInt(req.query.limit) || 200;
     const skip = (page - 1) * limit;
 
     const totalRecipes = await Post.countDocuments({});
@@ -46,7 +46,7 @@ router.get('/recipes', async (req, res) => {
   }
 });
 
-  // GET recipe details by ID
+// GET recipe details by ID
 router.get('/recipes/:id', async (req, res) => {
   const recipeId = req.params.id;
 
