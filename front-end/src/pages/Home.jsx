@@ -111,7 +111,7 @@ const Home = () => {
       </section>
       <section className=' mt-24 mx-auto max-w-2xl lg:max-w-5xl space_small'>
         <h2 className=' pb-10 text-4xl text-center'>Featured <span className='text-[#AD343E] font-semibold'> Recipes </span> </h2>
-        <FeatureRecipe recipes={recipes} wishlistData={wishlistData} />
+        <FeatureRecipe recipes={recipes} wishlistData={wishlistData} addWishhandler={addWishhandler} />
       </section>
       <section className=' mt-24 mx-auto max-w-xl lg:max-w-3xl'>
         <h2 className=' pb-16 text-4xl text-center'>What Does<span className='text-[#AD343E] font-semibold'>   Healthy </span> <br />Even Mean? </h2>

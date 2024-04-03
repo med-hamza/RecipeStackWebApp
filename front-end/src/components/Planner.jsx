@@ -5,8 +5,19 @@ const Planner = ({ daysOfWeek, plannerItems }) => {
 
 
   return (
-    <div className=" mt-28  h-screen">
-
+    <div className=" mt-28">
+      <div className='bg-cover bg-center bg-no-repeat h-[400px] mt-0 md:mt-20 lg:mt-20' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/planner_favorite.png)` }}>
+        <div className='flex items-center justify-center h-full'>
+          <div>
+            <div className='text-center'>
+              <h1 className='text-white text-4xl md:text-7xl lg:text-7xl font-semibold mb-4'>
+                Your Planner
+              </h1>
+              <h2 className='text-white  font-thin leading-7 text-3xl md:text-5xl lg:text-5xl  '>your Daily Dish <br /> A Food Jounery</h2>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="container mx-auto px-4 sm:px-8">
         <div className="py-8">

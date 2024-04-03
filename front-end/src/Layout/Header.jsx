@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Menu from '../components/Menu';
 
@@ -25,15 +25,18 @@ const Header = () => {
 
             <div className="lg:flex lg:flex-row lg:items-center">
               <div className="hidden lg:flex lg:flex-row">
-                <Link className="bottom-link mr-8 font-semibold text-lg" to="/recipe">
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : " bottom-link mr-8 font-semibold text-lg text-black"} to="/recipe"
+                >
                   Browse Recipes
-                </Link>
-                <Link className="bottom-link mr-8 font-semibold text-lg" to="/wishlist">
+                </NavLink>
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/wishlist"
+                >
                   My Recipes
-                </Link>
-                <Link className="bottom-link mr-8 font-semibold text-lg" to="/planner">
+                </NavLink>
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/planner"
+                >
                   My Planner
-                </Link>
+                </NavLink>
               </div>
 
 

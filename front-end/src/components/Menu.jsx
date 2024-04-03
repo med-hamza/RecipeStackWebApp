@@ -30,6 +30,7 @@ const Menu = () => {
             </button>
 
             <nav
+                onClick={() => setOpen(!open)}
                 ref={menuRef}
                 className={`flex flex-col space-y-4 shadow-md z-20  bg-white px-6  lg:px-12  py-24 fixed top-0 right-0 h-full transform transition-transform duration-500 ease-in-out  ${open ? 'translate-x-0' : 'translate-x-full'} w-3/4 md:w-1/2 lg:w-1/5`}
             >
