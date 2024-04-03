@@ -1,41 +1,65 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeFromPlanner } from "../reducers/recipeplanner";
 
-const Planner = () => {
-  const plannerItems = useSelector((state) => state.planner.plannerItems);
-  const dispatch = useDispatch();
 
-  console.log(plannerItems)
+const Planner = ({ daysOfWeek, plannerItems }) => {
 
-  const handleRemoveFromPlanner = (recipeId) => {
-    dispatch(removeFromPlanner(recipeId));
-  };
-
-  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-5">Planner</h2>
-      <div className="days">
-        {daysOfWeek.map((day) => (
-          <div key={day} className="day">
-            <div className=" text-red-700 text-xl font-bold">{day}</div>
-            <div>
-              {plannerItems.map((item) => {
-                const selectedDays = item.days.map((dayObj) => dayObj.days).flat();
-                if (selectedDays.includes(day)) {
-                  return (
-                    <div key={item.recipeId}>
-                      {item.Title}
-                    </div>
-                  );
-                }
-                return null;
-              })}
+    <div className=" mt-28">
+
+
+      <div className="container mx-auto px-4 sm:px-8">
+        <div className="py-8">
+          <div>
+            <h2 className="text-2xl font-semibold leading-tight">Planner</h2>
+          </div>
+          <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div
+              className="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+            >
+              <table className="min-w-full leading-normal">
+                <thead>
+                  <tr>
+
+                    {daysOfWeek.map((day) => (
+
+                      <th key={day}
+                        className=" text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                      >{day}
+                      </th>
+
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {daysOfWeek.map((day) => (
+                      <td key={day} className="px-5 py-5 border-b border-r-2 last:border-r-0 border-gray-200 bg-white text-sm">
+                        {plannerItems.map((item) => {
+                          const selectedDays = item.days.map((dayObj) => dayObj.days).flat();
+                          if (selectedDays.includes(day)) {
+                            return (
+                              <div className="px-5 py-5  bg-white text-sm" key={item.recipeId}>
+                                {item.Title}
+                              </div>
+                            );
+                          }
+                          return null;
+                        })}
+                      </td>
+                    ))}
+
+                  </tr>
+
+                </tbody>
+              </table>
             </div>
           </div>
-        ))}
+        </div>
+      </div>
+
+      <div className="days">
+
       </div>
     </div>
   );
