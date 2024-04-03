@@ -5,7 +5,7 @@ const Planner = ({ daysOfWeek, plannerItems }) => {
 
 
   return (
-    <div className=" mt-28">
+    <div className=" mt-28  h-screen">
 
 
       <div className="container mx-auto px-4 sm:px-8">

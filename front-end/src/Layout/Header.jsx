@@ -25,13 +25,13 @@ const Header = () => {
 
             <div className="lg:flex lg:flex-row lg:items-center">
               <div className="hidden lg:flex lg:flex-row">
-                <Link className="mr-8 font-semibold text-lg" to="/recipe">
+                <Link className="bottom-link mr-8 font-semibold text-lg" to="/recipe">
                   Browse Recipes
                 </Link>
-                <Link className="mr-8 font-semibold text-lg" to="/wishlist">
+                <Link className="bottom-link mr-8 font-semibold text-lg" to="/wishlist">
                   My Recipes
                 </Link>
-                <Link className="mr-8 font-semibold text-lg" to="/planner">
+                <Link className="bottom-link mr-8 font-semibold text-lg" to="/planner">
                   My Planner
                 </Link>
               </div>

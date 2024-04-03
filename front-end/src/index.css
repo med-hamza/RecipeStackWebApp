@@ -119,3 +119,16 @@ code {
 
   }
 }
+
+.bottom-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: black;
+  transition: width .3s;
+}
+
+.bottom-link:hover::after {
+  width: 100%;
+}
