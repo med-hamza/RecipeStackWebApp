@@ -3,7 +3,7 @@
 
 
 # Ignore .env file
-/backend/.env
+backend/.env
 
 # Ignore data.csv file
-/backend/data.csv
+backend/Recipe.csv
