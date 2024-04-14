@@ -150,7 +150,7 @@ const Recipe = ({ recipes, wishlistData }) => {
         <div key={recipe._id}>
           <div className='border rounded-xl flex flex-col mx-auto sm:w-[300px] w-[280px]  relative shadow-md'>
             <div className=''>
-              <Link to={`/recipe/${recipe._id}`}>
+              <Link to={`/recipes/${recipe._id}`}>
                 <img
                   src={`${window.location.origin}/images/${recipe.Image_Name}.jpg`}
                   alt={recipe.Title}
