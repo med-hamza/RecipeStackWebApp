@@ -25,7 +25,7 @@ const Header = () => {
 
             <div className="lg:flex lg:flex-row lg:items-center">
               <div className="hidden lg:flex lg:flex-row">
-                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : " bottom-link mr-8 font-semibold text-lg text-black"} to="/recipe"
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : " bottom-link mr-8 font-semibold text-lg text-black"} to="/recipes"
                 >
                   Browse Recipes
                 </NavLink>
