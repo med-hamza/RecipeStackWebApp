@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 const Home = () => {
 
   const dispatch = useDispatch();
-  const recipes = useSelector((state) => state.Recipe.recipes.recipes);
+  const recipes = useSelector((state) => state.recipe.recipes.recipes);
   const wishlistData = useSelector((state) => state.wishlists.wishlistItem);
   useEffect(() => {
     dispatch(fetchRecipedata())

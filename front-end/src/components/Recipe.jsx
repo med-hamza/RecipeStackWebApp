@@ -1,29 +1,20 @@
 import { addToPlanner } from "../reducers/recipeplanner"
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipedata } from '../reducers/recipeReducer';
+import React, { useState } from 'react';
 import { addToWishlist } from '../reducers/wishReducer'
 import { Link } from 'react-router-dom';
-import Progressbar from './Progressbar';
 import ReactPaginate from 'react-paginate';
 import { HiSearch } from "react-icons/hi";
 import { HiOutlineHeart } from "react-icons/hi"
 import { HiHeart } from "react-icons/hi"
 import Swal from 'sweetalert2';
 import { HiPlusSmall } from "react-icons/hi2";
-import { HiCalendarDays } from "react-icons/hi2";
 import { CiCirclePlus } from "react-icons/ci";
+import { useDispatch } from "react-redux";
 
 
 
-
-
-const Recipe = () => {
+const Recipe = ({ recipes, wishlistData }) => {
   const dispatch = useDispatch();
-  const recipes = useSelector((state) => state.Recipe.recipes.recipes);
-  const status = useSelector((state) => state.Recipe.status);
-  const error = useSelector((state) => state.Recipe.error);
-  const wishlistData = useSelector((state) => state.wishlists.wishlistItem);
   const maxLenth = 28;
 
 
@@ -148,7 +139,9 @@ const Recipe = () => {
 
 
 
-  const recipesToDisplay = searchVal ? filteredRecipes : recipes || [];
+  const recipesToDisplay = searchVal ? filteredRecipes : (recipes || []);
+
+
   const displayRecipes = recipesToDisplay.length > 0 ? (
     recipesToDisplay
       .slice(pageVisited, pageVisited + recipesPerPage)
@@ -228,26 +221,8 @@ const Recipe = () => {
     setPageNumber(selectedPage);
   };
 
-  useEffect(() => {
-    dispatch(fetchRecipedata());
-  }, [dispatch]);
 
 
-  if (!recipes) {
-    return <div className="text-center h-screen grid items-center justify-center m-auto">
-      <Progressbar />
-    </div>;
-  }
-
-  if (status === 'loading') {
-    return <div className=" text-center h-screen grid items-center justify-center m-auto">
-      <Progressbar />
-    </div>;
-  }
-
-  if (status === 'failed') {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <div className='w-full max-w-7xl mx-auto mt-32'>
