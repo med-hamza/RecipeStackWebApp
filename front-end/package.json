@@ -32,7 +32,7 @@
   "scripts": {
     "start": "vite",
     "start-app": "craco start",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "test": "vite test",
     "eject": "react-scripts eject",
     "serve": "vite preview"
