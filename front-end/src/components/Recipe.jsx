@@ -247,7 +247,7 @@ const Recipe = ({ recipes, wishlistData }) => {
           <h1 className='sm:text-5xl text-xl  text-white font-bold'>Mike’s famous salad <br />
             with cheese</h1>
         </div>
-        <img src={process.env.PUBLIC_URL + '/recipe_cover.png'} alt="Background" className='mb-10' />
+        <img src={'/recipe_cover.png'} alt="Background" className='mb-10' />
       </div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>

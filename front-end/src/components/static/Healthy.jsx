@@ -9,7 +9,7 @@ const Healthy = () => {
             <h2 className=' pb-16 text-4xl text-center'>What Does<span className='text-[#AD343E] font-semibold'>   Healthy </span> <br />Even Mean? </h2>
             <div className=' block  md:flex lg:flex items-start justify-center mx-auto gap-14 mb-20'>
                 <div className=' w-3/4 mx-auto lg:w-2/5'>
-                    <img src={process.env.PUBLIC_URL + '/home_img/healthy-means3.png'} alt="healthy meal" className=' w-full' />
+                    <img src={'/home_img/healthy-means3.png'} alt="healthy meal" className=' w-full' />
                 </div>
                 <div className=' w-11/12   lg:basis-1/2 mx-auto'>
                     <div className=''>
@@ -40,7 +40,7 @@ const Healthy = () => {
                     </div>
                 </div>
                 <div className=' mt-4 lg:mt-0 w-3/4 mx-auto lg:w-2/5'>
-                    <img src={process.env.PUBLIC_URL + '/home_img/healthy-means2.png'} alt="healthy meal" className=' w-full' />
+                    <img src={'/home_img/healthy-means2.png'} alt="healthy meal" className=' w-full' />
                 </div>
             </div>
         </div>

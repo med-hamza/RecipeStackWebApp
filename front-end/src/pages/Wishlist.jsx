@@ -11,7 +11,7 @@ const WishlistPage = () => {
   }
   return (
     <div>
-      <div className='bg-cover bg-center bg-no-repeat h-[400px] mt-0 md:mt-20 lg:mt-20' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/banner_wishlist.png)` }}>
+      <div className='bg-cover bg-center bg-no-repeat h-[400px] mt-0 md:mt-20 lg:mt-20' style={{ backgroundImage: `url(/banner_wishlist.png)` }}>
         <div className='flex items-center justify-center h-full'>
           <div>
             <div className='text-center'>

@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className='bg-cover bg-center bg-no-repeat h-[600px] bg-header mt-0 md:mt-20 lg:mt-20' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/banner.jpg)` }}>
+      <div className='bg-cover bg-center bg-no-repeat h-[600px] bg-header mt-0 md:mt-20 lg:mt-20' style={{ backgroundImage: `url(/banner.jpg)` }}>
         <div className='flex items-center justify-center h-full'>
           <div>
             <div className='text-center'>
@@ -60,7 +60,7 @@ const Home = () => {
         <div className='mx-auto max-w-5xl'>
           <div className='flex items-center'>
             <div className='relative mx-auto w-3/5 md:w-3/5 lg:w-3/5'>
-              <img src={process.env.PUBLIC_URL + '/home_img/pic_healthy_food.png'} className=' w-full lg:w-3/4 md:w-3/4' alt="breakfast" />
+              <img src={'/home_img/pic_healthy_food.png'} className=' w-full lg:w-3/4 md:w-3/4' alt="breakfast" />
               <div className=' mt-8 lg:mt-0 md:mt-0 lg:-bottom-7 md:-bottom-7  md:left-52 lg:left-52  relative md:absolute lg:absolute'>
                 <div className=' bg-[#474747] p-6 border rounded-md border-[#474747] max-w-[280px]'>
                   <h4 className=' text-white font-semibold mb-5'>
@@ -117,7 +117,7 @@ const Home = () => {
         <h2 className=' pb-16 text-4xl text-center'>What Does<span className='text-[#AD343E] font-semibold'>   Healthy </span> <br />Even Mean? </h2>
         <div className=' block  md:flex lg:flex items-start justify-center mx-auto gap-14 mb-20'>
           <div className=' w-3/4 mx-auto lg:w-2/5'>
-            <img src={process.env.PUBLIC_URL + '/home_img/healthy-means3.png'} alt="healthy meal" className=' w-full' />
+            <img src={'/home_img/healthy-means3.png'} alt="healthy meal" className=' w-full' />
           </div>
           <div className=' w-11/12   lg:basis-1/2 mx-auto'>
             <div className=''>
@@ -148,7 +148,7 @@ const Home = () => {
             </div>
           </div>
           <div className=' mt-4 lg:mt-0 w-3/4 mx-auto lg:w-2/5'>
-            <img src={process.env.PUBLIC_URL + '/home_img/healthy-means2.png'} alt="healthy meal" className=' w-full' />
+            <img src={'/home_img/healthy-means2.png'} alt="healthy meal" className=' w-full' />
           </div>
         </div>
       </section>

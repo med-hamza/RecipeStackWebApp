@@ -11,7 +11,7 @@ const Header = () => {
         <nav className="flex items-center mt-2 mb-1 px-2 pl-2 pr-2  bg-transparent justify-between">
           <div>
             <Link to="/">
-              <img src={process.env.PUBLIC_URL + '/hamlicious.png'} alt="logo" />
+              <img src={'/hamlicious.png'} alt="logo" />
             </Link>
           </div>
 

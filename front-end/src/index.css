@@ -111,7 +111,7 @@ code {
 
 @media screen and (max-width: 767px) {
   .bg-header {
-    background-image: url('../public/header-banner.png') !important;
+    background-image: url('../header-banner.png') !important;
     height: 450px;
     background-position: bottom -1% center, center center;
     background-repeat: no-repeat, no-repeat;
