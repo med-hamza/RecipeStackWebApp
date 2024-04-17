@@ -17,7 +17,6 @@ const Recipe = ({ recipes, wishlistData }) => {
   const dispatch = useDispatch();
   const maxLenth = 28;
 
-
   const [pageNumber, setPageNumber] = useState(0);
   const [showDaysMap, setShowDaysMap] = useState({});
 
