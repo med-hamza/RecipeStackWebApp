@@ -17,6 +17,6 @@ const recipeShema = new mongoose.Schema({
     Cleaned_Ingredients: {
         type: String
     },
-}, {timestamps : true} )
+}, { timestamps: true })
 
-module.exports = mongoose.model("recipe",recipeShema );
+module.exports = mongoose.model("recipe", recipeShema);

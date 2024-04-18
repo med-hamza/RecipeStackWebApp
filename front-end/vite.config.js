@@ -30,6 +30,15 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        port: 3000,
+        proxy: {
+            '/users': {
+                target: 'http://localhost:4000',
+                changeOrigin: true
+            }
+        }
+    },
     optimizeDeps: {
         include: ['sweetalert2', 'react-paginate'],
         exclude: ['some-package-that-does-not-bundle-well'],
