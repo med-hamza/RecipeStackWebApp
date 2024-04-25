@@ -46,7 +46,7 @@ const Header = () => {
 
 
             <div className="lg:flex lg:flex-row lg:items-center">
-              <div className="hidden lg:flex lg:flex-row">
+              <div className="hidden lg:flex lg:flex-row items-center">
                 <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : " bottom-link mr-8 font-semibold text-lg text-black"} to="/recipes"
                 >
                   Browse Recipes
@@ -65,14 +65,15 @@ const Header = () => {
                     <Link className='text-[#AD343E]  font-semibold text-xl' to='/profile'>  {userInfo.firstname} </Link>
                   </div>
                 ) : (
-                  <div className='lg:flex lg:flex-row"'>
-                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/login"
-                    >
-                      Sign In
-                    </NavLink>
-                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/register"
+                  <div className='lg:flex lg:flex-row items-center'>
+
+                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] rounded-md  border-[#AD343E] border-2 py-1 px-5 mr-8 font-semibold text-lg" : "text-white bg-[#AD343E] py-1 px-5  rounded-md mr-8 font-semibold text-lg "} to="/register"
                     >
                       Sign Up
+                    </NavLink>
+                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/login"
+                    >
+                      Log In
                     </NavLink>
                   </div>
                 )}
