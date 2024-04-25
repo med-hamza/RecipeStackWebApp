@@ -37,6 +37,9 @@ const Menu = () => {
                 <Link to="/recipes" className="text-end text-[#727272] text-md font-semibold  border-b  border-[#cdcdcd] pb-2 uppercase">   Browse Recipes</Link>
                 <Link to="/wishlist" className="text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Recipes</Link>
                 <Link to="/planner" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Planner</Link>
+                <Link to="/login" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">Sign In</Link>
+                <Link to="/register" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">Sign Up</Link>
+
             </nav >
         </>
     );

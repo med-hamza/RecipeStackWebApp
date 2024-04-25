@@ -6,6 +6,11 @@ import LayoutRecipe from './Layout/LayoutRecipe';
 import Wishlist from './pages/Wishlist';
 import Plan from './pages/Plan';
 import RecipePage from './pages/RecipePage';
+import Login from './components/Authentication/Login';
+import Register from './components/Authentication/Register';
+import 'react-toastify/ReactToastify.css';
+import Profile from './components/Authentication/Profile';
+import PrivateRoute from './components/Authentication/PrivateRoute';
 
 
 function App() {
@@ -17,6 +22,12 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/recipes' element={<RecipePage />} />
         <Route path="recipes/:id" element={<RecipeDetails />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='' element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
+        </Route>
+
       </Route>
     </Routes>
   )

@@ -1,9 +1,31 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../components/Menu';
+import { LuPower } from "react-icons/lu";
+import { useLogoutMutation } from '../reducers/slices/usersApiSlice';
+import { logout } from '../reducers/authReducer';
+
+
 
 const Header = () => {
+
+  const { userInfo } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logouHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/');
+    } catch (err) {
+      console.log(err)
+    }
+
+  }
+
 
   return (
     <div className=' w-full  shadow-md fixed z-20 top-0 left-0 bg-white'>
@@ -37,6 +59,24 @@ const Header = () => {
                 >
                   My Planner
                 </NavLink>
+                {userInfo ? (
+                  <div className='flex items-center gap-3'>
+                    <p onClick={logouHandler} ><LuPower className='text-black hover:text-[#AD343E] text-2xl' /> </p>
+                    <Link className='text-[#AD343E]  font-semibold text-xl' to='/profile'>  {userInfo.firstname} </Link>
+                  </div>
+                ) : (
+                  <div className='lg:flex lg:flex-row"'>
+                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/login"
+                    >
+                      Sign In
+                    </NavLink>
+                    <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/register"
+                    >
+                      Sign Up
+                    </NavLink>
+                  </div>
+                )}
+
               </div>
 
 
