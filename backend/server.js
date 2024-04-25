@@ -14,7 +14,7 @@ const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 4000
 const corsOptions = {
-  origin: 'https://recipewebapp-mu6p.onrender.com',
+  origin: 'https://hamlicious-recipe.vercel.app',
   credentials: true,
 };
 
