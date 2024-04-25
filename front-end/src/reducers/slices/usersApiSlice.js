@@ -1,30 +1,31 @@
 import { apiSlice } from "./apiSlice";
 const USER_URL = '/users';
+const BASE_URL_SIGNUP_SIGNIN = 'https://recipewebapp-mu6p.onrender.com';
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
             query: (data) => ({
-                url: `${USER_URL}/auth`,
+                url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/auth`,
                 method: 'POST',
                 body: data
             }),
         }),
         register: builder.mutation({
             query: (data) => ({
-                url: `${USER_URL}`,
+                url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}`,
                 method: 'POST',
                 body: data
             }),
         }),
         logout: builder.mutation({
             query: () => ({
-                url: `${USER_URL}/logout`,
+                url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/logout`,
                 method: 'POST',
             })
         }),
         updateUser: builder.mutation({
             query: (data) => ({
-                url: `${USER_URL}/profile`,
+                url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/profile`,
                 method: 'PUT',
                 body: data
             })
