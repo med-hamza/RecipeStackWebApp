@@ -4,24 +4,27 @@ const userRoute = require('./routes/user')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const express = require('express');
 const connectDB = require('./config/db');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 require("dotenv").config()
-
 
 
 connectDB();
 const cors = require('cors')
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000
+const corsOptions = {
+  origin: 'https://recipewebapp-mu6p.onrender.com',
+  credentials: true,
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.listen(PORT, () => {
-  console.log('Server is running on port 4000');
+  console.log(`server is running on port ${PORT}`);
 });
 app.use("/api", activitiesRoute);
 app.use("/data", recipeRoute);
