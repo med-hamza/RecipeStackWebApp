@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice";
 const USER_URL = '/users';
-const BASE_URL_SIGNUP_SIGNIN = 'https://recipewebapp-mu6p.onrender.com';
+const BASE_URL_SIGNUP_SIGNIN = process.env.NODE_ENV === "development" ? "http://localhost:3000" : 'https://recipewebapp-mu6p.onrender.com'
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
