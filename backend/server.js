@@ -13,21 +13,22 @@ const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 4000
-const corsOptions = {
-  origin: 'https://hamlicious-recipe.vercel.app',
-  credentials: true,
-};
-
+// const corsOptions = {
+//   origin: 'https://hamlicious-recipe.vercel.app',
+//   credentials: true,
+// };
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use(cors(corsOptions));
 app.use(cookieParser());
 
-app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
-});
+
 app.use("/api", activitiesRoute);
 app.use("/data", recipeRoute);
 app.use('/users', userRoute);
 app.use(notFound);
 app.use(errorHandler);
+
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
+});
