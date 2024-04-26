@@ -113,7 +113,7 @@ const Home = () => {
         <h2 className=' pb-10 text-4xl text-center'>Featured <span className='text-[#AD343E] font-semibold'> Recipes </span> </h2>
         <FeatureRecipe recipes={recipes} wishlistData={wishlistData} addWishhandler={addWishhandler} />
       </section>
-      <section className=' mt-24 mx-auto max-w-xl lg:max-w-3xl'>
+      <section className=' mt-24 mx-auto max-w-xl lg:max-w-3xl mb-20'>
         <h2 className=' pb-16 text-4xl text-center'>What Does<span className='text-[#AD343E] font-semibold'>   Healthy </span> <br />Even Mean? </h2>
         <div className=' block  md:flex lg:flex items-start justify-center mx-auto gap-14 mb-20'>
           <div className=' w-3/4 mx-auto lg:w-2/5'>

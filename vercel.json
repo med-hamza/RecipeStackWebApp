@@ -1,9 +1,0 @@
-{
-    "version": 2,
-    "rewrites": [
-      { "source": "/data/recipes/:id", "destination": "/api/recipes/:id" },
-      { "source": "/data/recipes", "destination": "/api/recipes" },
-      { "source": "/data/add", "destination": "/api/add" }
-    ]
-  }
-  
