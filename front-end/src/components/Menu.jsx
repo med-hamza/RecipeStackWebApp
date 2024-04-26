@@ -1,11 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useLogoutMutation } from '../reducers/slices/usersApiSlice';
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
     const menuRef = useRef(null);
+    const { userInfo } = useSelector((state) => state.auth);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [logoutApiCall] = useLogoutMutation();
+
+    const logouHandler = async () => {
+        try {
+            await logoutApiCall().unwrap();
+            dispatch(logout());
+            navigate('/');
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -37,8 +55,21 @@ const Menu = () => {
                 <Link to="/recipes" className="text-end text-[#727272] text-md font-semibold  border-b  border-[#cdcdcd] pb-2 uppercase">   Browse Recipes</Link>
                 <Link to="/wishlist" className="text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Recipes</Link>
                 <Link to="/planner" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Planner</Link>
-                <Link to="/register" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">Sign Up</Link>
-                <Link to="/login" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">Log In</Link>
+                {userInfo ? (
+                    ''
+                ) : (
+                    <div className='lg:flex lg:flex-row items-center'>
+
+                        <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] rounded-md  border-[#AD343E] border-2 py-1 px-5 mr-8 font-semibold text-lg" : "text-white bg-[#AD343E] py-1 px-5  rounded-md mr-8 font-semibold text-lg "} to="/register"
+                        >
+                            Sign Up
+                        </NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/login"
+                        >
+                            Log In
+                        </NavLink>
+                    </div>
+                )}
 
             </nav >
         </>

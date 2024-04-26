@@ -36,8 +36,15 @@ const Header = () => {
               <img src={'/hamlicious.png'} alt="logo" />
             </Link>
           </div>
-
-          <div className=' block md:block lg:hidden sm:hidden '>
+          <div className='block md:hidden lg:hidden'>
+            {userInfo ? (
+              <div className='flex items-center gap-3'>
+                <p className=' cursor-pointer' onClick={logouHandler} ><LuPower className='text-black hover:text-[#AD343E] text-2xl' /> </p>
+                <Link className='text-[#AD343E]  font-semibold text-xl' to='/profile'>  {userInfo.firstname} </Link>
+              </div>
+            ) : ''}
+          </div>
+          <div className=' flex items-center md:hidden lg:hidden sm:hidden '>
             <Menu />
           </div>
           <div
@@ -46,16 +53,16 @@ const Header = () => {
 
 
             <div className="lg:flex lg:flex-row lg:items-center">
-              <div className="hidden lg:flex lg:flex-row items-center">
-                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : " bottom-link mr-8 font-semibold text-lg text-black"} to="/recipes"
+              <div className="hidden md:flex md:items-center lg:flex lg:flex-row items-center">
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg" : " bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg text-black"} to="/recipes"
                 >
                   Browse Recipes
                 </NavLink>
-                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/wishlist"
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg" : "bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg text-black"} to="/wishlist"
                 >
                   My Recipes
                 </NavLink>
-                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-8 font-semibold text-lg" : "bottom-link mr-8 font-semibold text-lg text-black"} to="/planner"
+                <NavLink className={({ isActive }) => isActive ? "text-[#AD343E] bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg" : "bottom-link mr-2 md:mr-2 lg:mr-8 font-semibold text-lg text-black"} to="/planner"
                 >
                   My Planner
                 </NavLink>
