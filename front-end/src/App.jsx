@@ -18,7 +18,9 @@ function App() {
     <Routes>
       <Route path="/" element={<LayoutRecipe />}>
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/planner" element={<Plan />} />
+        <Route path='' element={<PrivateRoute />}>
+          <Route path="/planner" element={<Plan />} />
+        </Route>
         <Route index element={<Home />} />
         <Route path='/recipes' element={<RecipePage />} />
         <Route path="recipes/:id" element={<RecipeDetails />} />
