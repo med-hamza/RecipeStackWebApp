@@ -13,6 +13,7 @@ const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 4000
+
 const allowedOrigins = ['http://localhost:3000', 'https://hamlicious-recipe.vercel.app'];
 
 const corsOptions = {
