@@ -2,14 +2,24 @@ const jwt = require("jsonwebtoken")
 
 const gernerateToken = (res, userId) => {
     const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
-        expiresIn: '30d'
+        expiresIn: '1d'
     });
+
+    let domain = '';
+
+    if (process.env.NODE_ENV === 'development') {
+        domain = 'localhost';
+    }
+    else {
+        domain = 'https://recipewebapp-mu6p.onrender.com';
+    }
 
     res.cookie('jwt', token, {
         httpOnly: true,
         secure: true,
         sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 1000
+        maxAge: 30 * 24 * 60 * 1000,
+        domain: domain
 
     });
 };
