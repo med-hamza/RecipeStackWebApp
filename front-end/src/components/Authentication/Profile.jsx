@@ -48,7 +48,6 @@ const Profile = () => {
                 toast.success('profile updated')
             }
             catch (err) {
-                toast.error(err?.data?.message || err.error)
             }
         }
     }
