@@ -13,8 +13,16 @@ const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 4000
+const allowedOrigins = ['http://localhost:3000', 'https://hamlicious-recipe.vercel.app'];
+
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://hamlicious-recipe.vercel.app'],
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
