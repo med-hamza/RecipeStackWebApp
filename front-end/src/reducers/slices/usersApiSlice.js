@@ -7,27 +7,31 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query: (data) => ({
                 url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/auth`,
                 method: 'POST',
-                body: data
+                body: data,
+                withCredentials: true
             }),
         }),
         register: builder.mutation({
             query: (data) => ({
                 url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}`,
                 method: 'POST',
-                body: data
+                body: data,
+                withCredentials: true
             }),
         }),
         logout: builder.mutation({
             query: () => ({
                 url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/logout`,
                 method: 'POST',
+                withCredentials: true
             })
         }),
         updateUser: builder.mutation({
             query: (data) => ({
                 url: `${BASE_URL_SIGNUP_SIGNIN}${USER_URL}/profile`,
                 method: 'PUT',
-                body: data
+                body: data,
+                withCredentials: true
             })
         })
     })
