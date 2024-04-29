@@ -13,11 +13,13 @@ const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 4000
-// const corsOptions = {
-//   origin: 'https://hamlicious-recipe.vercel.app',
-//   credentials: true,
-// };
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://hamlicious-recipe.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());

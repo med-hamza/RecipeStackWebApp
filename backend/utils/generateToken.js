@@ -5,21 +5,20 @@ const gernerateToken = (res, userId) => {
         expiresIn: '1d'
     });
 
-    let domain = '';
+    // let domain = '';
 
-    if (process.env.NODE_ENV === 'development') {
-        domain = 'localhost';
-    }
-    else {
-        domain = 'recipewebapp-mu6p.onrender.com';
-    }
+    // if (process.env.NODE_ENV === 'development') {
+    //     domain = 'localhost';
+    // }
+    // else {
+    //     domain = 'recipewebapp-mu6p.onrender.com';
+    // }
 
     res.cookie('jwt', token, {
         httpOnly: true,
         secure: true,
         sameSite: 'strict',
         maxAge: 30 * 24 * 60 * 1000,
-        domain: domain
 
     });
 };
