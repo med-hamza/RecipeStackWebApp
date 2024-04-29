@@ -1,17 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from '../reducers/rootReducer'
-import { myCustomApiService } from '../services/apiService'
+import { apiSlice } from '../reducers/slices/apiSlice'
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      thunk: {
-        extraArgument: myCustomApiService,
-      },
-      serializableCheck: false,
-    }),
-  devTools: true
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools: process.env.NODE_ENV !== 'production'
 })
 
 
