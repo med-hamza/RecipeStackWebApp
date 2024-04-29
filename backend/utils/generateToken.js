@@ -11,7 +11,7 @@ const gernerateToken = (res, userId) => {
         domain = 'localhost';
     }
     else {
-        domain = 'https://recipewebapp-mu6p.onrender.com';
+        domain = 'https://hamlicious-recipe.vercel.app/';
     }
 
     res.cookie('jwt', token, {
