@@ -142,7 +142,7 @@ const Home = () => {
               </h3>
               <div className=''>
                 <p>
-                  We believe that the first step to healthy eating begins simply with cooking at home. Knowing what goes into your food is the best way to get the most out of it.
+                  Nourishing Body and Soul, embracing the essence of wholesome ingredients. Savoring the goodness of nature, we celebrate the vitality and flavor that real food brings to our lives
                 </p>
               </div>
             </div>
