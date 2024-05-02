@@ -140,7 +140,6 @@ const Recipe = ({ recipes, wishlistData }) => {
 
   const recipesToDisplay = searchVal ? filteredRecipes : (recipes || []);
 
-
   const displayRecipes = recipesToDisplay.length > 0 ? (
     recipesToDisplay
       .slice(pageVisited, pageVisited + recipesPerPage)

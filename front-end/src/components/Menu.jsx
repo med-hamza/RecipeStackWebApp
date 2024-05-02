@@ -4,6 +4,8 @@ import { IoMdClose } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from '../reducers/slices/usersApiSlice';
+import { LuPower } from "react-icons/lu";
+import { logout } from '../reducers/authReducer';
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
@@ -56,7 +58,9 @@ const Menu = () => {
                 <Link to="/wishlist" className="text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Recipes</Link>
                 <Link to="/planner" className=" text-end text-[#727272] text-md font-semibold  border-b border-[#cdcdcd]  pb-2 uppercase">My Planner</Link>
                 {userInfo ? (
-                    ''
+                    <div>
+                        <p className='flex items-center gap-3 cursor-pointer' onClick={logouHandler} ><LuPower className='text-black hover:text-[#AD343E] text-2xl' />Logout </p>
+                    </div>
                 ) : (
                     <div className='lg:flex lg:flex-row items-center'>
 

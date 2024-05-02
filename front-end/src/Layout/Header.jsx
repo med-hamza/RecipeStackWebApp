@@ -39,7 +39,6 @@ const Header = () => {
           <div className='block md:hidden lg:hidden'>
             {userInfo ? (
               <div className='flex items-center gap-3'>
-                <p className=' cursor-pointer' onClick={logouHandler} ><LuPower className='text-black hover:text-[#AD343E] text-2xl' /> </p>
                 <Link className='text-[#AD343E]  font-semibold text-xl' to='/profile'>  {userInfo.firstname} </Link>
               </div>
             ) : ''}
