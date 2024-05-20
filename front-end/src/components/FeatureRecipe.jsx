@@ -128,7 +128,8 @@ const FeatureRecipe = ({ recipes, wishlistData, addWishhandler }) => {
                                                         recipeId: recipe._id,
                                                         days: Days,
                                                         Title: recipe.Title,
-                                                    })
+                                                    }),
+                                                    setShowDaysMap(false)
                                                 )
                                             }
                                         >
