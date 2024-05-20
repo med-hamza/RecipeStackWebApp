@@ -194,7 +194,8 @@ const Recipe = ({ recipes, wishlistData }) => {
                           recipeId: recipe._id,
                           days: Days,
                           Title: recipe.Title,
-                        })
+                        }),
+                        setShowDaysMap(false)
                       )
                     }
                   >
